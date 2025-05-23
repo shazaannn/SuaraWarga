@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suara Warga</title>
+  <style>
+    :root {
+      --primary: #007BFF;
+      --light: #ffffff;
+      --dark: #343a40;
+      --bg: var(--light);
+      --text: #212529;
+    }
+    [data-theme="dark"] {
+      --bg: var(--dark);
+      --text: #f8f9fa;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    header, nav, section {
+      width: 100%;
+      max-width: 400px;
+      margin: auto;
+      padding: 1rem;
+    }
+    header {
+      background: var(--primary);
+      color: var(--light);
+      text-align: center;
+    }
+    .hidden { display: none; }
+    .btn { background: var(--primary); color: var(--light); padding: .5rem 1rem; border: none; cursor: pointer; border-radius: 4px; }
+    input, select, textarea {
+      width: 100%; padding: .5rem; margin: .5rem 0; border: 1px solid #ccc; border-radius: 4px;
+    }
+    .toggle { position: fixed; top: 1rem; right: 1rem; cursor: pointer; }
+    footer {
+      margin-top: auto;
+      text-align: center;
+      padding: .5rem;
+      font-size: .8rem;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <div class="toggle">
+    <button onclick="toggleTheme()">Gelap & Terang</button>
+  </div>
+  <!-- Page1: Login/Register -->
+  <section id="page-login">
+    <header><h1>Suara Warga</h1><p>Dari Kita, Untuk Kita!</p></header>
+    <div id="auth-tabs">
+      <button onclick="showTab('login')" class="btn">Masuk</button>
+      <button onclick="showTab('register')" class="btn">Daftar</button>
+    </div>
+    <form id="login" class="auth-form">
+      <input type="email" placeholder="Alamat Email" required>
+      <input type="password" placeholder="Kata Sandi" required>
+      <a href="#" onclick="alert('Fitur lupa kata sandi')">Lupa Kata Sandi?</a>
+      <button class="btn">Masuk</button>
+    </form>
+    <form id="register" class="auth-form hidden">
+      <input type="text" placeholder="Nama Pengguna" required>
+      <input type="email" placeholder="Alamat Email" required>
+      <input type="password" placeholder="Kata Sandi" required>
+      <input type="password" placeholder="Ulangi Kata Sandi" required>
+      <button class="btn">Daftar Sekarang</button>
+    </form>
+  </section>
+
+  <!-- Page2: Kategori Keluhan -->
+  <section id="page-categories" class="hidden">
+    <header><h2>Pilih Kategori Keluhan</h2></header>
+    <input type="search" placeholder="Cari Keluhan...">
+    <div class="categories">
+      <button class="btn" onclick="goToForm('Infrastruktur')">Infrastruktur</button>
+      <button class="btn" onclick="goToForm('Pelayanan Publik')">Pelayanan Publik</button>
+      <button class="btn" onclick="goToForm('Lingkungan')">Lingkungan</button>
+      <button class="btn" onclick="goToForm('Keamanan')">Keamanan</button>
+      <button class="btn" onclick="goToForm('Transportasi')">Transportasi</button>
+      <button class="btn" onclick="goToForm('Pendidikan')">Pendidikan</button>
+      <button class="btn" onclick="goToForm('Sosial')">Sosial</button>
+      <button class="btn" onclick="goToForm('Kesehatan')">Kesehatan</button>
+      <button class="btn" onclick="goToForm('Politik')">Politik</button>
+      <button class="btn" onclick="goToForm('Hukum')">Hukum</button>
+      <button class="btn" onclick="goToForm('Ekonomi')">Ekonomi</button>
+      <button class="btn" onclick="goToForm('Korupsi')">Korupsi</button>
+      <button class="btn" onclick="goToForm('Pelecehan')">Pelecehan</button>
+    </div>
+  </section>
+
+  <!-- Page3: Form Pengaduan -->
+  <section id="page-form" class="hidden">
+    <header><h2>Buat Laporan</h2></header>
+    <form onsubmit="submitReport(event)">
+      <input type="text" id="report-title" placeholder="Judul Laporan" required>
+      <select id="report-category" required>
+        <option value="">Pilih Kategori</option>
+      </select>
+      <input type="text" id="report-location" placeholder="Lokasi Kejadian" required>
+      <textarea id="report-desc" rows="4" placeholder="Deskripsi Masalah" required></textarea>
+      <input type="file" id="report-file" accept="image/*,video/*,.pdf,.docx">
+      <button class="btn" type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- Page4: Dashboard -->
+  <section id="page-dashboard" class="hidden">
+    <header><h2>Dashboard</h2></header>
+    <p>Alamat: <strong>Warga Cibiru</strong></p>
+    <p>Mode: <button class="btn" onclick="toggleTheme()">Toggle Tema</button></p>
+    <p>Opsi Anonim: <input type="checkbox"></p>
+    <p>Jenis Laporan: <span id="dashboard-count">0</span> laporan</p>
+    <p>Bahasa: <select><option>Indonesia</option><option>English</option></select></p>
+    <button class="btn">Share Website</button>
+    <button class="btn" onclick="goTo('page-login')">Keluar</button>
+  </section>
+
+  <!-- Page5: Notifikasi -->
+  <section id="page-notifications" class="hidden">
+    <header><h2>Notifikasi</h2></header>
+    <ul id="notif-list">
+      <li>Laporan Anda telah diterima oleh sistem.</li>
+      <li>Laporan di-like pengguna lain.</li>
+      <li>Laporan di-komentari pengguna lain.</li>
+      <li>Laporan diposting ulang pengguna lain.</li>
+    </ul>
+  </section>
+
+  <footer>&copy; 2025 Suara Warga</footer>
+
+  <script>
+    function showTab(tab){
+      document.getElementById('login').classList.add('hidden');
+      document.getElementById('register').classList.add('hidden');
+      document.getElementById(tab).classList.remove('hidden');
+    }
+    function goTo(id){
+      ['page-login','page-categories','page-form','page-dashboard','page-notifications'].forEach(p=>{
+        document.getElementById(p).classList.add('hidden');
+      });
+      document.getElementById(id).classList.remove('hidden');
+    }
+    function goToForm(cat){
+      document.getElementById('report-category').innerHTML = `<option>${cat}</option>`;
+      goTo('page-form');
+    }
+    function submitReport(e){
+      e.preventDefault();
+      alert('Laporan berhasil dikirim!');
+      goTo('page-notifications');
+    }
+    function toggleTheme(){
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      body.setAttribute('data-theme', current==='light'?'dark':'light');
+    }
+    // init
+    showTab('login');
+  </script>
+</body>
+</html>

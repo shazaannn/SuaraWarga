@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buat Laporan - Suara Warga</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #2e86de;
+      color: white;
+      padding: 1.2rem;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      padding: 1.5rem;
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      margin-top: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #444;
+    }
+
+    textarea, input, select {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .submit-btn {
+      background: #2e86de;
+      color: white;
+      border: none;
+      padding: 0.9rem;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #1e6ec4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Buat Laporan Anda</header>
+
+  <div class="container">
+    <form>
+      <label for="kategori">Kategori</label>
+      <select id="kategori" required>
+        <option value="">-- Pilih Kategori --</option>
+        <option value="Pendidikan">Pendidikan</option>
+        <option value="Transportasi">Transportasi</option>
+        <option value="Sosial">Sosial</option>
+        <option value="Politik">Politik</option>
+        <option value="Lingkungan">Lingkungan</option>
+        <option value="Keamanan">Keamanan</option>
+        <option value="Kesehatan">Kesehatan</option>
+        <option value="Korupsi">Korupsi</option>
+        <option value="Pelecehan">Pelecehan</option>
+        <option value="Lainnya">Lainnya</option>
+      </select>
+
+      <label for="lokasi">Lokasi Kejadian</label>
+      <input type="text" id="lokasi" placeholder="Contoh: Majalaya, Bandung" required>
+
+      <label for="deskripsi">Deskripsi Masalah</label>
+      <textarea id="deskripsi" rows="5" placeholder="Tulis kronologi atau penjelasan masalah..." required></textarea>
+
+      <label for="bukti">Bukti (foto/video/dokumen)</label>
+      <input type="file" id="bukti" accept="image/*,video/*,.pdf,.doc,.docx" multiple>
+
+      <button type="submit" class="submit-btn">Kirim Laporan</button>
+    </form>
+  </div>
+
+</body>
+</html>

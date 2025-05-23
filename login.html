@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <script src="auth.js"></script>
+</head>
+<body>
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Nama Pengguna">
+  <button onclick="handleLogin()">Masuk</button>
+
+  <script>
+    function handleLogin() {
+      const username = document.getElementById('username').value.trim();
+      if (username) {
+        loginUser(username);
+        alert("Login berhasil!");
+        window.location.href = "detail-laporan.html";
+      }
+    }
+  </script>
+</body>
+</html>

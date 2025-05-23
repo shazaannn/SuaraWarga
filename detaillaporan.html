@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Laporan - Suara Warga</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background: #f2f2f2;
+    }
+
+    header {
+      background: #2e86de;
+      color: white;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      background: white;
+      max-width: 700px;
+      margin: 1rem auto;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .report-header h2 {
+      margin: 0;
+      color: #333;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.3rem;
+    }
+
+    .badge {
+      background: #dff0ff;
+      color: #2e86de;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    .description {
+      margin-top: 1rem;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .evidence {
+      margin-top: 1.2rem;
+    }
+
+    .evidence p {
+      font-weight: bold;
+    }
+
+    .evidence img, .evidence video {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+    }
+
+    .comments {
+      margin-top: 2rem;
+    }
+
+    .comments h3 {
+      margin-bottom: 1rem;
+      color: #2e86de;
+    }
+
+    .comment {
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+    }
+
+    .comment strong {
+      color: #333;
+    }
+
+    .comment p {
+      margin: 0.3rem 0 0 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .comment-form {
+      margin-top: 1.5rem;
+    }
+
+    .comment-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      font-size: 1rem;
+    }
+
+    .comment-form button {
+      margin-top: 0.7rem;
+      background: #2e86de;
+      border: none;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .comment-form button:hover {
+      background: #1e6ec4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Detail Laporan</header>
+
+  <div class="container">
+    <div class="report-header">
+      <h2>Urgent!! Kasus Korupsi di Majalaya</h2>
+      <div class="meta">Dilaporkan oleh <strong>Rifda Rahma</strong> • Warga Cibiru • 07:00 AM</div>
+      <span class="badge">Kategori: Korupsi</span>
+    </div>
+
+    <div class="description">
+      Saya melihat ada dugaan penggelapan dana proyek pembangunan jalan di wilayah Majalaya. Proyek terhenti tiba-tiba dan kualitas bangunannya buruk. Mohon siapa pun yang punya wewenang bisa menyelidiki.
+    </div>
+
+    <div class="evidence">
+      <p>Bukti:</p>
+      <img src="bukti-foto.jpg" alt="Foto Bukti Korupsi">
+      <!-- Contoh video atau dokumen bisa ditambahkan juga -->
+      <!-- <video src="bukti-video.mp4" controls></video> -->
+    </div>
+
+    <div class="comments">
+      <h3>Komentar Warga</h3>
+
+      <div class="comment">
+        <strong>Anonim</strong>
+        <p>Wah saya juga lewat situ, bener banget, kualitas jalannya parah.</p>
+      </div>
+
+      <div class="comment">
+        <strong>Latif</strong>
+        <p>Terima kasih sudah melaporkan. Saya akan bantu viralkan.</p>
+      </div>
+
+      <div class="comment-form">
+        <textarea rows="3" placeholder="Tulis komentar Anda..."></textarea>
+        <button>Kirim Komentar</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
