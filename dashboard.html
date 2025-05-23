@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suara Warga - Dashboard</title>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#007BFF">
+  <style>
+    :root { --primary: #007BFF; --bg: #fff; --text: #333; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 1rem; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .card { background: #f9f9f9; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
+    .toggle { cursor: pointer; padding: 0.5rem; }
+    select, button { padding: 0.6rem; border-radius: 6px; border: 1px solid #ccc; margin-left: 0.5rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Dashboard</h2>
+    <div>
+      <span class="toggle" onclick="document.body.classList.toggle('dark')">Gelap & Terang</span>
+      <button onclick="location.href='logout.html'">Keluar</button>
+    </div>
+  </header>
+  <div class="card">
+    <strong>Pengguna:</strong> Rifda Rahma<br>
+    <strong>Alamat:</strong> Warga Cibiru<br>
+    <label><input type="checkbox"> Anonim</label>
+  </div>
+  <div class="card">
+    <strong>Keluhan Terkirim:</strong> 5<br>
+    <strong>Disukai:</strong> 3<br>
+    <strong>Dikomentari:</strong> 4
+  </div>
+  <div class="card">
+    <label for="lang">Bahasa:</label>
+    <select id="lang">
+      <option>Bahasa Indonesia</option>
+      <option>English</option>
+    </select>
+    <button>Share Website</button>
+  </div>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js');
+  </script>
+</body>
+</html>

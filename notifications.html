@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suara Warga - Notifikasi</title>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#007BFF">
+  <style>
+    :root { --primary: #007BFF; --bg: #fff; --text: #333; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 1rem; }
+    .note { background: #f9f9f9; padding: 1rem; margin-bottom: 0.8rem; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h2>Notifikasi</h2>
+  <div class="note">Laporan Anda telah diterima oleh sistem.</div>
+  <div class="note">Keluhan Anda di-like pengguna lain.</div>
+  <div class="note">Keluhan Anda dikomentari pengguna lain.</div>
+  <div class="note">Keluhan Anda diposting ulang.</div>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js');
+  </script>
+</body>
+</html>

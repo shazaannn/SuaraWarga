@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suara Warga - Formulir Pengaduan</title>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#007BFF">
+  <style>
+    :root { --primary: #007BFF; --bg: #fff; --text: #333; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 1rem; }
+    h2 { margin-bottom: 1rem; font-size: 1.25rem; }
+    .complaints { margin-bottom: 1.5rem; }
+    .complaints .item { background: #f1f1f1; padding: 0.8rem; margin-bottom: 0.5rem; border-radius: 6px; }
+    form { background: #f9f9f9; padding: 1rem; border-radius: 8px; width: 100%; max-width: 600px; margin: auto; }
+    label { display: block; margin: 0.5rem 0 0.2rem; }
+    input, select, textarea { width: 100%; padding: 0.6rem; margin-bottom: 0.8rem; border: 1px solid #ccc; border-radius: 6px; }
+    .btn { padding: 0.8rem 1.5rem; background: var(--primary); color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>Pengaduan Terkini</h2>
+  <div class="complaints">
+    <div class="item">Urgent!! Kasus Korupsi di Majalaya...</div>
+    <div class="item">Lampu Jalan Mati di Cibiru...</div>
+  </div>
+  <form>
+    <label for="title">Judul Laporan</label>
+    <input type="text" id="title" placeholder="Judul singkat" required>
+    <label for="category">Kategori</label>
+    <select id="category" required>
+      <option>Infrastruktur</option>
+      <option>Pelayanan Publik</option>
+      <option>Lingkungan</option>
+      <option>Keamanan</option>
+      <option>Transportasi</option>
+      <option>Pendidikan</option>
+      <option>Social</option>
+      <option>Kesehatan</option>
+      <option>Politik</option>
+      <option>Hukum</option>
+      <option>Ekonomi</option>
+      <option>Korupsi</option>
+      <option>Pelecehan</option>
+    </select>
+    <label for="location">Lokasi Kejadian</label>
+    <input type="text" id="location" placeholder="Masukkan lokasi atau otomatis" required>
+    <label for="description">Deskripsi Masalah</label>
+    <textarea id="description" rows="4" placeholder="Jelaskan kronologi..." required></textarea>
+    <label for="evidence">Upload Bukti</label>
+    <input type="file" id="evidence" accept="image/*,video/*,.pdf" required>
+    <button type="submit" class="btn">Kirim</button>
+  </form>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js');
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suara Warga - Kategori Keluhan</title>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#007BFF">
+  <style>
+    :root { --primary: #007BFF; --bg: #fff; --text: #333; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 1rem; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .search { width: 100%; padding: 0.6rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 6px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(120px,1fr)); gap: 0.8rem; }
+    .card { background: #f9f9f9; padding: 1rem; text-align: center; border-radius: 8px; cursor: pointer; transition: transform .2s; }
+    .card:hover { transform: translateY(-4px); }
+    @media (max-width: 600px) { .grid { grid-template-columns: repeat(2,1fr); } }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Kategori Keluhan</h2>
+    <button onclick="location.href='dashboard.html'">Dashboard</button>
+  </header>
+  <input type="text" class="search" placeholder="Cari Keluhan...">
+  <div class="grid">
+    <div class="card">Infrastruktur</div>
+    <div class="card">Pelayanan Publik</div>
+    <div class="card">Lingkungan</div>
+    <div class="card">Keamanan</div>
+    <div class="card">Transportasi</div>
+    <div class="card">Pendidikan</div>
+    <div class="card">Sosial</div>
+    <div class="card">Kesehatan</div>
+    <div class="card">Politik</div>
+    <div class="card">Hukum</div>
+    <div class="card">Ekonomi</div>
+    <div class="card">Korupsi</div>
+    <div class="card">Pelecehan</div>
+  </div>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js');
+  </script>
+</body>
+</html>

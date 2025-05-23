@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <title>Login</title>
-  <script src="auth.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suara Warga - Login / Registrasi</title>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#007BFF">
+  <style>
+    :root { --primary: #007BFF; --bg: #fff; --text: #333; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+    body { background: var(--bg); color: var(--text); display: flex; align-items: center; justify-content: center; padding: 1rem; min-height: 100vh; }
+    .container { background: #f9f9f9; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+    h1 { text-align: center; margin-bottom: 1rem; color: var(--primary); }
+    label { display: block; margin: 0.5rem 0 0.2rem; }
+    input { width: 100%; padding: 0.6rem; margin-bottom: 0.8rem; border: 1px solid #ccc; border-radius: 6px; }
+    .btn { width: 100%; padding: 0.8rem; background: var(--primary); color: #fff; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; }
+    .secondary { background: #6c757d; margin-top: 0.5rem; }
+    .links { text-align: center; margin-top: 0.5rem; }
+    .links a { color: var(--primary); text-decoration: none; font-size: 0.9rem; }
+  </style>
 </head>
 <body>
-  <h2>Login</h2>
-  <input type="text" id="username" placeholder="Nama Pengguna">
-  <button onclick="handleLogin()">Masuk</button>
-
+  <div class="container">
+    <h1>Suara Warga</h1>
+    <form>
+      <label for="email">Alamat Email</label>
+      <input type="email" id="email" placeholder="email@contoh.com" required>
+      <label for="password">Kata Sandi</label>
+      <input type="password" id="password" placeholder="Masukkan kata sandi" required>
+      <button type="submit" class="btn">Masuk</button>
+    </form>
+    <div class="links">
+      <a href="forgot.html">Lupa Kata Sandi?</a>
+    </div>
+    <hr style="margin:1rem 0;">
+    <button class="btn secondary" onclick="location.href='register.html'">Daftar Sekarang</button>
+  </div>
   <script>
-    function handleLogin() {
-      const username = document.getElementById('username').value.trim();
-      if (username) {
-        loginUser(username);
-        alert("Login berhasil!");
-        window.location.href = "detail-laporan.html";
-      }
-    }
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js');
   </script>
 </body>
 </html>
